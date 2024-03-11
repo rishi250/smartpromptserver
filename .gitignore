@@ -1,0 +1,6 @@
+.env
+/venv
+.pre-commit-config.yaml
+.mypy_cache
+test.py
+.vscode
