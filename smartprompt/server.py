@@ -28,8 +28,16 @@ class Server:
                 query
             )
         except sqlite3.OperationalError: ## temporary error handling fix to logging later
-            print(query)
+            print("Error in inserting new label: "+query+"\n")
     
+    def get_label_list(self):
+        """Get dict of label_id:labels in the database."""
+        self.cur.execute("SELECT label_id,label FROM labels ORDER BY label ASC;")
+        # return as a list of dict of label_id: label
+        rows = self.cur.fetchall()
+        label_dict = {row[0]: row[1] for row in rows}
+        return label_dict
+
     def get_prompt_responses(self, label_ids: list) -> dict:
         """Get prompt responses from the database."""
         prompt_responses = {}

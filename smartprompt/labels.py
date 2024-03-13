@@ -72,9 +72,6 @@ class LabelMaker:
         )
 
         response = self.RunLLm.completion(prompt)["output"].strip()
-        print(response)
         response_list = json.loads(response)
-
         labels_jsons = [json.loads(json.dumps(item)) for item in response_list]
-
         return labels_jsons
