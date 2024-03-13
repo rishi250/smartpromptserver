@@ -27,8 +27,9 @@ class Server:
             self.cur.execute(
                 query
             )
-        except sqlite3.OperationalError: ## temporary error handling fix to logging later
-            print("Error in inserting new label: "+query+"\n")
+        except sqlite3.OperationalError as e: ## temporary error handling fix to logging later
+            print(f"Error in inserting new label with query: {query} \n"
+                  f"due to {e}\n\n")
     
     def get_label_list(self):
         """Get dict of label_id:labels in the database."""
