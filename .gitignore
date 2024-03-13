@@ -5,4 +5,4 @@
 test.py
 .vscode
 labels.db
-__pycache__
+smartprompt/__pycache__
